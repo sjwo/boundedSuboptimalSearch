@@ -1,5 +1,7 @@
 # Bounded Suboptimal Heuristic Search
 
+NOTE: THIS BRANCH IS A WORK IN PROGRESS, CHANGING FROM CONAN/CMAKE TO BAZEL. The Prerequisits, Compilation, and any other affected section below will be updated upon completion.
+
 ## Welcome to bounded suboptimal heuristic search project!
 The purpose of the project is to implement several state-of-the-art BSS algorithms and run benchmark with classical search domains such as Sliding Tiles, Pancakes. 
 
