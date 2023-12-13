@@ -17,8 +17,9 @@ sudo apt install clang-6.0 clang-tidy-6.0 clang-format-6.0
 
 Install up-to-date CMake version. We also use `cmake-format` to keep our CMake files tidy.
 ```
-sudo pip install cmake
-sudo pip install cmake-format
+python -m venv .venv --prompt=BSS
+.venv/bin/activate
+pip install cmake cmake-format
 ``` 
 
 ### Conan Setup
@@ -26,8 +27,9 @@ sudo pip install cmake-format
 The [Conan](https://conan.io) package manager is used to manage project's external
 dependencies. This section describes the process of setting it up.  Installation is as simple as running
 
+(still in BSS venv)
 ```
-sudo pip3 install conan
+pip install conan
 ```
 
 #### Creating Profiles
@@ -37,10 +39,11 @@ for Ubuntu 16.04 environment.  If you are using several profiles, you may want t
 more descriptive name for it.
 ```
 # create new profile called 'default'
-conan profile new default --detect
-# modify settings of the 'default' profile
-conan profile update settings.compiler.version=5.4 default
-conan profile update settings.compiler.libcxx=libstdc++11 default
+conan profile detect --name default
+<!-- # modify settings of the 'default' profile -->
+<!-- `conan profile update` command no longer exists in conan 2.0: -->
+<!-- conan profile update settings.compiler.version=5.4 default -->
+<!-- conan profile update settings.compiler.libcxx=libstdc++11 default -->
 ```
 At the moment, there exist precompiled versions of the packages needed by
 the project for this particular profile:
@@ -71,6 +74,7 @@ For debug purpose, you can also do the following
 cd ..
 mkdir build_debug && cd build_debug
 conan install ../boundedSuboptimalSearch --build missing
+<!-- up to above line works; below line fails with "Cmake Error -->
 cmake -DCMAKE_BUILD_TYPE=Debug -GNinja ../boundedSuboptimalSearch
 ninja bss 
 ```
