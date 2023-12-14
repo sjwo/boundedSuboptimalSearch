@@ -288,6 +288,7 @@ cc_binary(
     deps = [
         ":BoundedSuboptimalSearch",
         ":SearchBase",
+        "@cxxopts",
     ],
 )
 
