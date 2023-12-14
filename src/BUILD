@@ -273,9 +273,13 @@ cc_library(
     ]
 )
 
+
 cc_library(
     name = "BoundedSuboptimalSearch",
     srcs = ["BoundedSuboptimalSearch.hpp"],
+    deps = [
+        "@boost//:math",
+    ]
 )
 
 cc_binary(

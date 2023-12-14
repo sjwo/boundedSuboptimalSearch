@@ -19,3 +19,12 @@ gcc_register_toolchain(
     name = "gcc_toolchain_x86_64",
     target_arch = ARCHS.x86_64,
 )
+
+# From https://github.com/nelhage/rules_boost
+http_archive(
+    name = "com_github_nelhage_rules_boost",
+    url = "https://github.com/nelhage/rules_boost/archive/ce2b65fd6d1494aadb2d8c99ce26aa222ab72486.tar.gz",
+    strip_prefix = "rules_boost-ce2b65fd6d1494aadb2d8c99ce26aa222ab72486",
+)
+load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
+boost_deps()
