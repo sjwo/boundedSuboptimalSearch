@@ -1,5 +1,7 @@
 load("@rules_cc//cc:defs.bzl", "cc_binary")
 
+# TODO look into consolidating all algs into single search cc_library, and same for domains and utilities.
+
 cc_library(
     name = "SearchBase",
     srcs = ["SearchBase.hpp"],
